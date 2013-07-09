@@ -1,0 +1,1 @@
+Based on [this Rails lesson by Schneems](https://github.com/centerforstudents/reddit_on_rails "Reddit on Rails").
