@@ -59,6 +59,7 @@ Readit::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :pages
+  resources :links
 
   root to: "pages#index"
 end
