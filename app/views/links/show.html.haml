@@ -1,1 +1,23 @@
 = link_to @link.title, @link.url
+
+%h2 Comments:
+
+%div
+  - @link.comments.each do |comment|
+    %p= comment.message
+
+= form_for [@link, @comment] do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h2= pluralize(@comment.errors.count, "error") + "prohibited this idea from being saved:"
+
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :message
+    %br
+    = f.text_area :message
+
+  .actions= f.submit
