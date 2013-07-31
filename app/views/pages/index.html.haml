@@ -1,5 +1,9 @@
 = link_to "Add a new link", new_link_path
 
+= form_tag '/search', :method => :get do
+  = text_field_tag :q, params[:q]
+  = submit_tag 'Search'
+
 %ul
   - @links.each do |link|
     %li

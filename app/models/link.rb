@@ -3,4 +3,13 @@ class Link < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  
+  searchable do
+    text :title
+  end
+  
+  def self.search(query)
+    where('title LIKE ?', "%#{query.gsub(/ /, '%')}%")
+  end
+  
 end
